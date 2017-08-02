@@ -9,7 +9,7 @@ $autoload['drivers'] = array();
 
 $autoload['helper'] = array('url', 'form', 'string', 'date', 'number', 'html', 'cookie', 'file', 'directory', 'language');
 
-$autoload['config'] = array();
+$autoload['config'] = array('my_config');
 
 $autoload['language'] = array();
 

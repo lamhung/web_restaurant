@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Creat Menu 
+                <?=$this->lang->line('create');?>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -45,8 +45,8 @@
                                 <div class="clearfix"></div>
                             </div><!-- /Form group-->
                              <input type="hidden" name="<?= $this->security->get_csrf_token_name();?>" value="<?= $this->security->get_csrf_hash();?>" />
-                            <button type="submit" name='submit' value="submit" class="btn btn-primary">Submit</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button type="submit" name='submit' value="submit" class="btn btn-primary"><?=$this->lang->line('save');?></button>
+                            <button type="reset" class="btn btn-default"><?=$this->lang->line('reset');?></button>
                         </form>
                     </div>
                 </div>

@@ -12,11 +12,10 @@ class User extends MY_Controller {
     public function index()
     {
     	$get = $this->input->get();	
-    	$keywords = $this->input->get('keywords') ? $this->input->get('keywords') : '';
-    	$this->load->library('pagination_mylib');
-        $config = $this->pagination_mylib->bootstrap_configs();
+    	$keywords = isset($get['keywords']) ? $get['keywords'] : '';
+    	$config = $this->config->item('pagination');
         $config['base_url'] = base_url('user');
-        $config['reuse_query_string'] = TRUE; //c
+        $config['reuse_query_string'] = TRUE;
         $con_count = array(
         	'select' => 'COUNT(*)',
             );
@@ -24,10 +23,10 @@ class User extends MY_Controller {
         	$con_count['like'] = 'name, $keywords';
         }
         $config['total_rows'] = $this->user_model->count_total($con_count);
-        $config['per_page'] = 5;
+        $config['per_page'] = 12;
         $config['use_page_numbers'] = TRUE;
-        $config['page_query_string'] = TRUE; // cai nay la de truyen param len url, vi du /?page=2&seach=
-        $config['query_string_segment'] = 'page'; // doi cai bien per_page thanh page cho dep
+        $config['page_query_string'] = TRUE; 
+        $config['query_string_segment'] = 'page'; 
 
         $this->pagination->initialize($config);
         $offset = isset($get['page']) ? ($get['page'] - 1) * $config['per_page'] : 0;
@@ -102,7 +101,7 @@ class User extends MY_Controller {
         $row = $this->user_model->get_by($id);
         $post = array();
         $post = $this->user_model->convert_input($this->input->post());
-        // print_r($post);die;
+        
         if (!$row) {
             $this->session->set_flashdata("msg_error", $this->lang->line('user_not_exist'));
             redirect(base_url('user'));
@@ -171,6 +170,7 @@ class User extends MY_Controller {
             redirect(base_url('user'));
         }
         if($this->user_model->destroy($id)){
+            $this->load->library('imagelib');
             $this->imagelib->delete('user', $row['image']);
             $this->session->set_flashdata("msg_info", $this->lang->line('user_has_been_deleted'));
         }

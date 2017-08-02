@@ -2,15 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * CodeIgniter Number Helpers
- *
- * @package	CodeIgniter
- * @subpackage	Helpers
- * @category	Helpers
- * @author	Thanh Nguyen
- */
-// ------------------------------------------------------------------------
+
 
 if (!function_exists('currency_vnd')) {
 

@@ -10,7 +10,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading " style="position: relative">
-                <a  href='<?=base_url("menu/add/")?>' class="btn btn-success pull-left">New</a>
+                <a  href='<?=base_url("menu/add/")?>' class="btn btn-success pull-left"><?=$this->lang->line('new');?></a>
                 <div class="search col-md-5 pull-right">
                     <form action='' method="get" class="frm_search" autocomplete="ON">
                         <div class="form-group col-md-9 col-sm-9 col-xs-12" style="margin: 0"> 

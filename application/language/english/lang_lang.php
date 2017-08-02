@@ -1,5 +1,11 @@
 <?php
-
+// Commont
+$lang['create'] = 'Create';
+$lang['new'] = 'New';
+$lang['save'] = 'Save';
+$lang['reset'] = 'Reset';
+$lang['update'] = 'Update';
+$lang['delete'] = 'Delete';
 // Menu
 $lang['menu_pknum'] = 'Num';
 $lang['menu_name'] = 'Name';
